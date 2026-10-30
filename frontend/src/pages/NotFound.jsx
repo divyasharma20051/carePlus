@@ -1,0 +1,3 @@
+import { React, useCallback, useEffect, useState, Link, useNavigate, useLocation, Formik, Form, Field, Yup, api, getError, locations, specialties, Alert, Activity, ArrowRight, CalendarDays, CheckCircle2, Clock3, HeartPulse, Hospital, MapPin, Menu, Phone, Search, ShieldCheck, Stethoscope, Users, TrendingUp, X, LogIn, UserPlus, LogOut, LayoutDashboard, ClipboardList, BadgeCheck, Trash2, Star, ChevronRight, Mail, BriefcaseMedical, Sparkles, AlertCircle } from '../lib/pageImports';
+
+export default function NotFound(){return <main className="page not-found"><Hospital size={40}/><h1>Page not found</h1><p>The page you're looking for doesn't exist.</p><Link className="btn" to="/">Back to home</Link></main>}

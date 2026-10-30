@@ -1,0 +1,11 @@
+const router = require('express').Router();
+const c = require('../controllers/apiController');
+const uploadResume = require('../middleware/resumeUpload');
+const { requireRole } = require('../middleware/authMiddleware');
+const admin = require('../controllers/admin/careerApplicationsController');
+router.get('/career', c.career);
+router.post('/career/apply', uploadResume, c.applyCareer);
+router.get('/admin/career-applications', requireRole('admin'), admin.listCareerApplications);
+router.patch('/admin/career-applications/:id', requireRole('admin'), admin.updateCareerApplication);
+router.get('/admin/career-applications/:id/resume', requireRole('admin'), admin.downloadCareerResume);
+module.exports = router;

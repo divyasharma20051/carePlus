@@ -1,0 +1,21 @@
+CarePlus Doctor Dashboard update
+
+Added:
+- Summary cards for today's, pending, confirmed and completed appointments.
+- Appointment search by patient name, phone, reason, time slot and email.
+- Status and date filters with clear-filters action.
+- Refresh button and loading state.
+- Appointment details modal.
+- Doctor appointment status update actions using the existing backend route.
+- Responsive layout for desktop and mobile.
+
+Setup notes:
+1. Open backend/.env and re-enter your own environment secrets before running the backend:
+   RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET, SESSION_SECRET, ADMIN_PASSWORD,
+   EMAIL_USER, EMAIL_PASS, JWT_SECRET.
+2. The uploaded archive contained live-looking credentials. They have been blanked in this edited copy for safety. If those were real credentials, rotate them in the relevant provider dashboards.
+3. Install dependencies from the package files:
+   - In backend: npm install
+   - In frontend: npm install
+4. Start MongoDB, then run the backend and frontend in separate terminals.
+5. Build validation could not complete in this environment because the bundled node_modules lacked the platform-specific Rollup binary. Reinstalling dependencies on your machine should resolve that environment-specific issue.

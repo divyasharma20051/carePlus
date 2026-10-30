@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const c = require('../controllers/apiController');
+const { requireAuth } = require('../middleware/authMiddleware');
+const rateLimit = require('express-rate-limit');
+const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 40, standardHeaders: true, legacyHeaders: false, message: { message: 'Too many requests. Please try again later.' } });
+router.post('/appointments/send-otp', authLimiter, c.startAppointmentOTP);
+router.post('/appointments/verify-otp', authLimiter, c.verifyAppointmentOTP);
+router.get('/appointments/my', requireAuth, c.myAppointments);
+router.patch('/appointments/:id/status', requireAuth, c.cancelAppointment);
+module.exports = router;

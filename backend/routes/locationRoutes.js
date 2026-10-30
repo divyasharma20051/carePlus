@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const c = require('../controllers/apiController');
+const hospital = require('../controllers/location/hospitalController');
+const { requireRole } = require('../middleware/authMiddleware');
+router.get('/locations', c.locations);
+router.get('/hospitals', hospital.getHospitals);
+router.post('/admin/hospitals', requireRole('admin'), hospital.createHospital);
+router.patch('/admin/hospitals/:id', requireRole('admin'), hospital.updateHospital);
+router.delete('/admin/hospitals/:id', requireRole('admin'), hospital.deleteHospital);
+module.exports = router;

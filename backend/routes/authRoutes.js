@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const c = require('../controllers/apiController');
+const rateLimit = require('express-rate-limit');
+const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 40, standardHeaders: true, legacyHeaders: false, message: { message: 'Too many requests. Please try again later.' } });
+router.post('/auth/register', authLimiter, c.register);
+router.post('/auth/login', authLimiter, c.login);
+router.post('/auth/logout', c.logout);
+router.get('/auth/me', c.me);
+router.post('/auth/verify-registration-otp', authLimiter, c.verifyRegistrationOTP);
+module.exports = router;
